@@ -32,8 +32,6 @@ export const metadata: Metadata = {
   title: SITE.title,
 };
 
-export const runtime = 'edge';
-
 export default function Page() {
   return (
     <>
