@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app';
+import moment from 'moment';
 import { collection, getDocs, getFirestore, limit, orderBy, query, where } from 'firebase/firestore';
 import matter from 'gray-matter';
 
@@ -18,6 +19,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const formatPosts = (postsList) => {
+  // console.log('postsList', postsList);
   let posts = [];
   postsList.forEach((post) => {
     const { data: frontmatter, content } = matter(post.content);
@@ -25,7 +27,7 @@ const formatPosts = (postsList) => {
       slug: post.slug,
       title: post.title,
       description: post.description,
-      publishDate: post.publishDate,
+      publishDate: moment.unix(post.publishDate.seconds).format('MMMM DD, YYYY'),
       image: post.image,
       content: content,
       tags: post.tags,
@@ -55,7 +57,7 @@ export const getPostBySlug = async (slug) => {
     slug: post.data().slug,
     title: post.data().title,
     description: post.data().description,
-    publishDate: post.data().publishDate,
+    publishDate: moment.unix(post.data().publishDate.seconds).format('MMMM DD, YYYY'),
     image: post.data().image,
     content: post.data().content,
     tags: post.data().tags,
@@ -77,7 +79,7 @@ export const findLatestPosts = async ({ count } = {}) => {
       slug: doc.data().slug,
       title: doc.data().title,
       description: doc.data().description,
-      publishDate: doc.data().publishDate,
+      publishDate: moment.unix(doc.data().publishDate).format('MMMM DD, YYYY'),
       image: doc.data().image,
       content: doc.data().content,
       tags: doc.data().tags,

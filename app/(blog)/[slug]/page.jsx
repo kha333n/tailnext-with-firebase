@@ -2,7 +2,7 @@ import md from 'markdown-it';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-import { getPostBySlug } from '~/utils/firestore';
+import { findLatestPosts, getPostBySlug } from '~/utils/firestore';
 
 export const dynamicParams = false;
 
@@ -16,11 +16,10 @@ export async function generateMetadata({ params }) {
   return { title: post.title, description: post.description };
 }
 
-// export async function generateStaticParams() {
-//   console.log(await findLatestPosts());
-//   // return (await findLatestPosts()).map(({ slug }) => ({ slug }));
-//   return [];
-// }
+export async function generateStaticParams() {
+  // return (await findLatestPosts()).map(({ slug }) => ({ slug }));
+  return await findLatestPosts();
+}
 
 export default async function Page({ params }) {
   const post = await getPostBySlug(params.slug);
@@ -33,7 +32,8 @@ export default async function Page({ params }) {
       <article>
         <header className={post.image ? 'text-center' : ''}>
           <p className="mx-auto max-w-3xl px-4 sm:px-6">
-            <time dateTime={post.publishDate}>{getFormattedDate(post.publishDate)}</time> ~{' '}
+            <time dateTime={post.publishDate}>{post.publishDate}</time>
+            ~{' '}
             {/* {Math.ceil(post.readingTime)} min read */}
           </p>
           <h1 className="leading-tighter font-heading mx-auto mb-8 max-w-3xl px-4 text-4xl font-bold tracking-tighter sm:px-6 md:text-5xl">
