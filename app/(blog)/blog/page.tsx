@@ -1,14 +1,16 @@
-import type { Metadata } from 'next';
-
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { getAllPosts } from '~/utils/laravel';
 
-export const metadata: Metadata = {
-  title: 'Blog',
-};
+export const runtime = 'edge';
+export const dynamicParams = true;
 
+export async function generateMetadata() {
+  return {
+    title: 'Blog',
+  };
+}
 export default async function Home({}) {
   const posts = await getAllPosts();
   return (

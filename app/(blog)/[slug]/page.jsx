@@ -2,9 +2,9 @@ import md from 'markdown-it';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-import { findLatestPosts, getPostBySlug } from '~/utils/laravel';
+import { getPostBySlug } from '~/utils/laravel';
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 const getFormattedDate = (date) => date;
 
@@ -16,10 +16,11 @@ export async function generateMetadata({ params }) {
   return { title: post.title, description: post.description };
 }
 
-export async function generateStaticParams() {
-  // return (await findLatestPosts()).map(({ slug }) => ({ slug }));
-  return await findLatestPosts();
-}
+export const runtime = 'edge';
+// export async function generateStaticParams() {
+//   // return (await findLatestPosts()).map(({ slug }) => ({ slug }));
+//   return await findLatestPosts();
+// }
 
 export default async function Page({ params }) {
   const post = await getPostBySlug(params.slug);
