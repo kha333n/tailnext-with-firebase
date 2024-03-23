@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { getAllPosts } from '~/utils/laravel';
 
 export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
 export const dynamicParams = true;
 
 export async function generateMetadata() {

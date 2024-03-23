@@ -5,9 +5,6 @@ import { notFound } from 'next/navigation';
 import { getPostBySlug } from '~/utils/laravel';
 
 export const dynamicParams = true;
-
-const getFormattedDate = (date) => date;
-
 export async function generateMetadata({ params }) {
   const post = await getPostBySlug(params.slug);
   if (!post) {
@@ -17,10 +14,6 @@ export async function generateMetadata({ params }) {
 }
 
 export const runtime = 'edge';
-// export async function generateStaticParams() {
-//   // return (await findLatestPosts()).map(({ slug }) => ({ slug }));
-//   return await findLatestPosts();
-// }
 
 export default async function Page({ params }) {
   const post = await getPostBySlug(params.slug);
