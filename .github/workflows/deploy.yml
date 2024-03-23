@@ -1,0 +1,74 @@
+name: Laravel Deploy
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '18.17.0'
+
+      - name: Build and Deploy Frontend
+        run: |
+          npm install
+          npm i @shopify/draggable@next
+          npm run front-build
+          npm run production
+
+          git config --global user.email "gitdeploy@wewantsaas.com"
+          git config --global user.name "Github Action Deploy"
+
+          # Remove paths from .gitignore temporarily
+          sed -i '/public\/assets/d' .gitignore
+          sed -i '/public\/build/d' .gitignore
+          sed -i '/public\/mix-manifest.json/d' .gitignore
+
+          # Add built assets to the repository
+          git add public/assets public/build public/mix-manifest.json
+          git commit -m "Add built front-end assets"
+          ASSETS_COMMIT_HASH=$(git rev-parse HEAD)
+
+      - name: Update Deployment Branch with Built Assets
+        run: |
+          git checkout -b deployment || git checkout deployment
+          git cherry-pick $ASSETS_COMMIT_HASH || echo "Cherry-pick failed"
+          git push -f origin deployment
+
+      - name: SSH and Deploy to VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.WWS_VPS_USERNAME }}
+          password: ${{ secrets.WWS_VPS_PASSWORD }}
+          script: |
+            cd htdocs/wewantsaas.com
+            php artisan down
+
+            git fetch --all
+            git reset --hard origin/deployment
+
+            # Continue with the rest of the deployment script
+            composer install --no-interaction --prefer-dist --optimize-autoloader
+            php artisan migrate
+            php artisan queue:restart
+            php artisan optimize:clear
+            echo "" | sudo -S service php8.1-fpm reload
+            php artisan optimize
+            php artisan up
+
+      - name: Purge Cloudflare Cache
+        run: |
+          curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.WWS_CLOUDFLARE_ZONE_ID }}/purge_cache" \
+          -H "X-Auth-Email: ${{ secrets.CLOUDFLARE_EMAIL }}" \
+          -H "X-Auth-Key: ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          --data '{"purge_everything":true}'

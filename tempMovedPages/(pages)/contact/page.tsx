@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Contact2 from '~/components/widgets/Contact2';
 import Features2 from '~/components/widgets/Features2';
 import Hero from '~/components/widgets/Hero';
-import { heroContact, contact2Contact, features2Contact } from '~/shared/data/pages/contact.data';
+import { contact2Contact, features2Contact, heroContact } from '~/shared/data/pages/contact.data';
 
 export const metadata: Metadata = {
   title: 'Contact us',

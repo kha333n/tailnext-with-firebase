@@ -7,47 +7,44 @@ import SocialProof from '../src/components/widgets/SocialProof';
 import Features from '~/components/widgets/Features';
 import Content from '~/components/widgets/Content';
 import Steps from '~/components/widgets/Steps';
-import Testimonials from '~/components/widgets/Testimonials';
-import FAQs2 from '~/components/widgets/FAQs2';
-import Pricing from '~/components/widgets/Pricing';
-import Team from '~/components/widgets/Team';
-import CallToAction2 from '~/components/widgets/CallToAction2';
-import Contact from '~/components/widgets/Contact';
-import {
-  callToAction2Home,
-  contactHome,
-  contentHomeOne,
-  contentHomeTwo,
-  faqs2Home,
-  featuresHome,
-  heroHome,
-  pricingHome,
-  socialProofHome,
-  stepsHome,
-  teamHome,
-  testimonialsHome,
-} from '~/shared/data/pages/home.data';
+import { contentHomeOne, featuresHome, heroHome, socialProofHome, stepsHome } from '~/shared/data/pages/home.data';
 
 export const metadata: Metadata = {
   title: SITE.title,
 };
 
-export const runtime = 'edge';
 export default function Page() {
   return (
     <>
+      {/*Brief introduction about Usman Khan, highlighting his expertise as a Laravel Developer and mentioning his involvement in other development-related work.
+Use a professional profile picture of Usman Khan.
+*/}
       <Hero {...heroHome} />
+
       <SocialProof {...socialProofHome} />
+
+      {/*what I do*/}
+      {/*Highlight Usman Khan's skills and services offered, such as Laravel development, PHP development, jQuery, HTML, etc.
+Use icons or graphics to visually represent each skill.*/}
       <Features {...featuresHome} />
-      <Content {...contentHomeOne} />
-      <Content {...contentHomeTwo} />
+
+      {/*Work Experience Section:*/}
+      {/*Showcase Usman Khan's work experience, including current and previous positions.
+Mention notable projects or achievements.*/}
       <Steps {...stepsHome} />
-      <Testimonials {...testimonialsHome} />
-      <FAQs2 {...faqs2Home} />
-      <Pricing {...pricingHome} />
-      <Team {...teamHome} />
-      <Contact {...contactHome} />
-      <CallToAction2 {...callToAction2Home} />
+      {/*Personal Details Section:*/}
+      {/*Display personal details such as location, education, and contact information.
+Optionally, include a link to download Usman Khan's resume.*/}
+      <Content {...contentHomeOne} />
+      {/*Blog Section:*/}
+      {/*Feature recent blog posts written by Usman Khan.
+Include a "Read More" button or link to encourage visitors to explore the blog further.*/}
+      {/*<Testimonials {...testimonialsHome} />*/}
+      {/*<FAQs2 {...faqs2Home} />*/}
+      {/*<Pricing {...pricingHome} />*/}
+      {/*<Team {...teamHome} />*/}
+      {/*<Contact {...contactHome} />*/}
+      {/*<CallToAction2 {...callToAction2Home} />*/}
     </>
   );
 }

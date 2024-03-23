@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Title, Subtitle, Description, Primary, Controls, Story, Stories } from '@storybook/blocks';
+import { Controls, Description, Primary, Stories, Story, Subtitle, Title } from '@storybook/blocks';
 
 import Component from '~/components/widgets/Features2';
 import { featuresHome as mockData } from '~/shared/data/pages/home.data';

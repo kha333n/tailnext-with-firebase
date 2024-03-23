@@ -2,10 +2,8 @@ import {
   IconArrowDown,
   IconArrowsRightLeft,
   IconBrandLinkedin,
-  IconBrandTailwind,
   IconBrandTwitter,
   IconBulb,
-  IconCheck,
   IconClock,
   IconComponents,
   IconDownload,
@@ -28,48 +26,52 @@ import {
   TeamProps,
   TestimonialsProps,
 } from '../../types';
-import heroImg from '~/assets/images/hero.jpg';
-import nextJsLogo from '~/assets/images/nextjs-logo.png';
-import reactLogo from '~/assets/images/react-logo.png';
+import heroImg from '~/assets/images/hero.jpeg';
+import laravelLogo from '~/assets/images/laravel.png';
+import filamentLogo from '~/assets/images/filament.png';
 import tailwindCssLogo from '~/assets/images/tailwind-css-logo.png';
-import typescriptLogo from '~/assets/images/typescript-logo.png';
+import mysqlLogo from '~/assets/images/mysql.png';
 import cameraFrontImg from '~/assets/images/camera-front.jpg';
 import cameraBackImg from '~/assets/images/camera-back.jpg';
-import gasImg from '~/assets/images/gas.jpg';
+import workExperienceImage from '~/assets/images/work-experience.jpeg';
 
 // Hero data on Home page *******************
 export const heroHome: HeroProps = {
   title: (
     <>
-      Free template for <span className="hidden md:inline">starts a website using</span> <span>Next.js</span> +{' '}
-      <span className="sm:whitespace-nowrap">Tailwind CSS</span>
+      Welcome to <i>Usman Khan&apos;s World</i> of Development Excellence
     </>
   ),
   subtitle: (
     <>
-      <span className="hidden md:inline">
-        <span className="font-semibold underline decoration-primary-600 decoration-wavy decoration-1 underline-offset-2">
-          TailNext
-        </span>{' '}
-        is a production ready template to start your new website using <em>Next.js</em> + <em>Tailwind CSS</em>.
-      </span>{' '}
-      It has been designed following Best Practices, SEO, Accessibility, Dark Mode, great Page Speed, image
-      optimization.
+  <span className="hidden md:inline">
+    <span className="font-semibold underline decoration-primary-600 decoration-wavy decoration-1 underline-offset-2">
+      Hello,
+    </span>{' '}
+    I&apos;m Usman Khan, <em className="font-semibold">Laravel Developer</em> with a passion for
+    <em className="font-semibold">crafting elegant solutions to complex problems.</em>
+  </span>{' '}
+      With years of experience in Laravel development and a versatile skill set covering PHP, jQuery, HTML,
+      and more. <br></br>
+      I thrive on turning ideas into reality, building <span
+      className="font-semibold">robust web applications,</span> optimizing code
+      for performance, or exploring new technologies. Let&apos;s bring your projects to life together.
     </>
+
   ),
   callToAction: {
-    text: 'Get template',
-    href: 'https://github.com/onwidget/tailnext',
-    icon: IconDownload,
+    text: 'if (curious) { click } else { 😊 }',
+    href: 'https://linkedin.com/in/kha333n',
+    icon: IconBrandLinkedin,
     targetBlank: true,
   },
   callToAction2: {
-    text: 'Learn more',
-    href: '/',
+    text: 'Read Blogs',
+    href: '/blog',
   },
   image: {
     src: heroImg,
-    alt: 'Hero TailNext',
+    alt: 'kha333n hero image',
   },
 };
 
@@ -79,14 +81,14 @@ export const socialProofHome: SocialProofProps = {
   hasBackground: false,
   images: [
     {
-      link: 'https://nextjs.org/',
-      src: nextJsLogo,
-      alt: 'NextJs Logo',
+      link: 'https://laravel.com/',
+      src: laravelLogo,
+      alt: 'Laravel Logo',
     },
     {
-      link: 'https://react.dev/',
-      src: reactLogo,
-      alt: 'React Logo',
+      link: 'https://filamentphp.com/',
+      src: filamentLogo,
+      alt: 'FilamentPHP Logo',
     },
     {
       link: 'https://tailwindcss.com/',
@@ -94,9 +96,9 @@ export const socialProofHome: SocialProofProps = {
       alt: 'Tailwind CSS Logo',
     },
     {
-      link: 'https://www.typescriptlang.org/',
-      src: typescriptLogo,
-      alt: 'Typescript Logo',
+      link: 'https://www.mysql.com/',
+      src: mysqlLogo,
+      alt: 'MySQL Logo',
     },
   ],
 };
@@ -105,77 +107,57 @@ export const socialProofHome: SocialProofProps = {
 export const featuresHome: FeaturesProps = {
   id: 'features-on-home',
   hasBackground: false,
-  columns: 3,
+  columns: 2,
   header: {
     title: (
       <>
-        What you get with <span className="whitespace-nowrap">TailNext</span>
+        <span className="whitespace-nowrap">Skills & Expertise</span>
       </>
     ),
     subtitle:
-      "Elevating Your Digital Presence: Discover the Synergies Unleashed in Our Platform's Core Strengths, from Seamless Integration to Open Collaboration.",
-    tagline: 'Features',
+      'Discover my skills and expertise in backend and frontend development. From Laravel proficiency to frontend capabilities. With a commitment to best practices and a receptive attitude towards new ideas.',
+    tagline: 'Still here... 😎 Keep scrolling',
   },
   items: [
     {
-      title: 'Next.Js + Tailwind CSS Integration',
+      title: 'Backend Development',
       description:
-        'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-      icon: IconBrandTailwind,
-      callToAction: {
-        text: 'Discover now',
-        href: '/',
-      },
+        'Specializing in Laravel framework for backend development, including building APIs, integrating databases, and implementing business logic.',
+      icon: IconArrowsRightLeft,
+      // callToAction: {
+      //   text: 'Discover now',
+      //   href: '/',
+      // },
     },
     {
-      title: 'Ready-to-use Components',
+      title: 'Frontend Development',
       description:
-        'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
+        'Proficient in frontend technologies such as HTML, CSS, and JavaScript to create user interfaces and enhance user experiences.',
       icon: IconComponents,
-      callToAction: {
-        text: 'Discover now',
-        href: '/',
-      },
     },
     {
       title: 'Best Practices',
       description:
-        'By prioritizing maintainability and scalability through coding standards and design principles, your website stays robust and efficient.',
+        'Adhering to industry best practices and standards in software development to ensure high-quality, maintainable, and scalable solutions.',
       icon: IconListCheck,
-      callToAction: {
-        text: 'Discover now',
-        href: '/',
-      },
     },
     {
-      title: 'Excellent Page Speed',
+      title: 'Database Management',
       description:
-        'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
+        'Designing, optimizing, and managing databases using SQL and NoSQL technologies to ensure efficient data storage and retrieval.',
       icon: IconRocket,
-      callToAction: {
-        text: 'Discover now',
-        href: '/',
-      },
     },
     {
-      title: 'Search Engine Optimization (SEO)',
+      title: 'API Development',
       description:
-        "Boost online visibility with our SEO-friendly website. Effective strategies and practices enhance your website's search engine ranking, making it easier for users to find your content.",
-      icon: IconArrowsRightLeft,
-      callToAction: {
-        text: 'Discover now',
-        href: '/',
-      },
+        'Designing and developing RESTful APIs for seamless communication between frontend and backend systems.',
+      icon: IconArrowDown,
     },
     {
       title: 'Open to new ideas and contributions',
       description:
-        'We welcome new ideas and contributions to our platform. Whether you have feature suggestions, want to contribute code, or share insights, our platform is open for collaboration.',
+        'Embracing innovation and collaboration, always open to exploring new technologies, methodologies, and ideas to drive continuous improvement and deliver exceptional results.',
       icon: IconBulb,
-      callToAction: {
-        text: 'Discover now',
-        href: '/',
-      },
     },
   ],
 };
@@ -185,27 +167,47 @@ export const contentHomeOne: ContentProps = {
   id: 'contentOne-on-home-one',
   hasBackground: true,
   header: {
-    title: 'Aliquip definiebas ad est',
-    subtitle: 'Quando cetero his ne, eum admodum sapientem ut',
-    tagline: 'Content',
+    title: 'Want to contact me?',
+    subtitle: 'Here are some of my details.',
+    tagline: 'You are very curious 👌 Keep scrolling',
   },
   content:
-    'Ne dicta praesent ocurreret has, diam theophrastus at pro. Eos etiam regione ut, persius eripuit quo id. Sit te euismod tacimates.',
+    '',
   items: [
     {
-      title: 'Per ei quaeque sensibus',
+      title: 'Name',
       description:
-        'Ex usu illum iudico molestie. Pro ne agam facete mediocritatem, ridens labore facete mea ei. Pro id apeirian dignissim.',
+        'Usman Khan',
     },
     {
-      title: 'Cu imperdiet posidonium sed',
+      title: 'Location',
       description:
-        'Amet utinam aliquando ut mea, malis admodum ocurreret nec et, elit tibique cu nec. Nec ex maluisset inciderint, ex quis.',
+        'Lahore, Punjab, Pakistan',
     },
     {
-      title: 'Nulla omittam sadipscing mel ne',
+      title: 'Education',
       description:
-        'At sed possim oporteat probatus, justo graece ne nec, minim commodo legimus ut vix. Ut eos iudico quando soleat, nam modus.',
+        'BS Software Engineering (Virtual University of Pakistan)',
+    },
+    {
+      title: 'Intrests',
+      description:
+        'Coding. Coding. Coding. Along with Classical Music.',
+      callToAction: {
+        text: 'Listen along',
+        href: 'https://open.spotify.com/playlist/37i9dQZF1DX1oYzvZ9A4Uy',
+        targetBlank: true,
+      },
+    },
+    {
+      title: 'Extra Activities',
+      description:
+        'Watch movies, Play Snoker, and Go Outside.',
+      callToAction: {
+        text: 'One of my most favorite',
+        href: 'https://open.spotify.com/playlist/37i9dQZF1DX1oYzvZ9A4Uy',
+        targetBlank: true,
+      },
     },
   ],
   image: {
@@ -257,29 +259,23 @@ export const stepsHome: StepsProps = {
   isReversed: false,
   isImageDisplayed: true,
   image: {
-    src: gasImg,
-    alt: 'Steps image',
+    src: workExperienceImage,
+    alt: 'Work timeline image',
   },
   header: {
-    title: 'Sed ac magna sit amet risus tristique interdum.',
+    title: 'Work Experience',
   },
   items: [
     {
-      title: 'Step 1',
+      title: 'Laravel Developer at 2BTech LLC',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mirisus tempus nulla, sed porttitor est nibh at nulla. Praesent placerat enim ut ex tincidunt vehicula. Fusce sit amet dui tellus.',
+        'Joined 2BTech LLC in March 2023 as a Laravel Developer. Played a key role in developing robust web applications using Laravel framework, contributing to the company\'s projects and initiatives in the field of web development.',
       icon: IconArrowDown,
     },
     {
-      title: 'Step 2',
+      title: 'Web Development Team Lead',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mirisus tempus nulla, sed porttitor est nibh at nulla.',
-      icon: IconArrowDown,
-    },
-    {
-      title: 'Step 3',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mirisus tempus nulla, sed porttitor est nibh at nulla.',
+        'Promoted to Web Development Team Lead at 2BTech LLC in September 2023. Led a team of developers in designing and implementing web solutions, overseeing project timelines, and ensuring the delivery of high-quality products. Provided technical guidance and mentorship to team members, fostering collaboration and innovation within the development team.',
       icon: IconArrowDown,
     },
     {
@@ -381,11 +377,11 @@ export const faqs2Home: FAQsProps = {
       description: `Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer eleifend vestibulum nisl in iaculis. Mauris dictum ac purus vestibulum auctor. Praesent imperdiet lectus et massa faucibus, quis viverra massa rhoncus.`,
     },
     {
-      title: "What's something that you completely don't understand?",
+      title: 'What\'s something that you completely don\'t understand?',
       description: `Mauris vitae eros a dui varius luctus. Suspendisse rutrum, sapien nec blandit bibendum, justo sapien sollicitudin erat, id aliquam sapien purus quis leo. Aliquam vulputate vestibulum consectetur.`,
     },
     {
-      title: "What's an example of when you changed your mind?",
+      title: 'What\'s an example of when you changed your mind?',
       description: `Nunc dapibus lacinia ipsum ut elementum. Integer in pretium sapien. Ut pretium nisl mauris, ut rutrum justo condimentum id. Etiam aliquet, arcu at iaculis laoreet, est arcu egestas sapien, eget sollicitudin odio orci et nunc.`,
     },
     {

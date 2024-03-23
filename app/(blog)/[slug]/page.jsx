@@ -2,27 +2,21 @@ import md from 'markdown-it';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-import { findPostBySlug, findLatestPosts } from '~/utils/posts';
+import { getPostBySlug } from '~/utils/laravel';
 
-export const dynamicParams = false;
-
-const getFormattedDate = (date) => date;
-
-export async function generateMetadata({ params}) {
-  const post = await findPostBySlug(params.slug);
+export const dynamicParams = true;
+export async function generateMetadata({ params }) {
+  const post = await getPostBySlug(params.slug);
   if (!post) {
     return notFound();
   }
   return { title: post.title, description: post.description };
 }
 
-export async function generateStaticParams() {
-  return (await findLatestPosts()).map(({ slug }) => ({ slug }));
-}
+export const runtime = 'edge';
 
 export default async function Page({ params }) {
-  const post = await findPostBySlug(params.slug);
-
+  const post = await getPostBySlug(params.slug);
   if (!post) {
     return notFound();
   }
@@ -32,7 +26,8 @@ export default async function Page({ params }) {
       <article>
         <header className={post.image ? 'text-center' : ''}>
           <p className="mx-auto max-w-3xl px-4 sm:px-6">
-            <time dateTime={post.publishDate}>{getFormattedDate(post.publishDate)}</time> ~{' '}
+            <time dateTime={post.publishDate}>{post.publishDate}</time>
+            ~{' '}
             {/* {Math.ceil(post.readingTime)} min read */}
           </p>
           <h1 className="leading-tighter font-heading mx-auto mb-8 max-w-3xl px-4 text-4xl font-bold tracking-tighter sm:px-6 md:text-5xl">
