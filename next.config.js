@@ -21,7 +21,7 @@ module.exports = {
       },
       {
         protocol: 'https',
-        hostname: 'kha333n.com',
+        hostname: 'api.kha333n.com',
       },
     ],
   },
