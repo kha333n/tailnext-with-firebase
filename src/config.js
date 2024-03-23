@@ -1,10 +1,10 @@
 module.exports.SITE = {
-  name: 'TailNext',
+  name: 'KHA333N',
 
-  origin: 'https://tailnext.vercel.app',
+  origin: 'https://kha333n.com',
   basePathname: '/',
   trailingSlash: false,
 
-  title: 'TailNext — Your website with Next.js + Tailwind CSS',
-  description: 'TailNext is a free and ready to start template to make your website using Next.js and Tailwind CSS.',
+  title: 'Kha333n — Developer, Designer, and Creator',
+  description: 'Kha333n is a developer, designer, and creator who loves to build things for the web.',
 };

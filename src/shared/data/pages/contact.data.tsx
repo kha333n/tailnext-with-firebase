@@ -1,6 +1,5 @@
 import { IconClock, IconHeadset, IconHelp, IconMapPin, IconMessages, IconPhoneCall } from '@tabler/icons-react';
-import { ContactProps, FeaturesProps } from '~/shared/types';
-import { HeroProps } from '~/shared/types';
+import { ContactProps, FeaturesProps, HeroProps } from '~/shared/types';
 
 // Hero data on Contact page *******************
 export const heroContact: HeroProps = {

@@ -1,5 +1,4 @@
-import { ComparisonProps, FAQsProps, PricingProps } from '~/shared/types';
-import { HeroProps } from '~/shared/types';
+import { ComparisonProps, FAQsProps, HeroProps, PricingProps } from '~/shared/types';
 
 // Hero data on Pricing page *******************
 export const heroPricing: HeroProps = {

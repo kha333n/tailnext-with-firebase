@@ -13,15 +13,15 @@ import Testimonials2 from '~/components/widgets/Testimonials2';
 import {
   contactAbout,
   faqsAbout,
+  features3About,
+  featuresAbout,
   featuresFourAbout,
   featuresFourAboutTwo,
-  features3About,
   hero2About,
   statsAbout,
   stepsAbout,
-  testimonials2About,
-  featuresAbout,
   teamAbout,
+  testimonials2About,
 } from '~/shared/data/pages/about.data';
 
 export const metadata: Metadata = {

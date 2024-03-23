@@ -1,5 +1,4 @@
-import { CallToActionProps, FAQsProps } from '~/shared/types';
-import { HeroProps } from '~/shared/types';
+import { CallToActionProps, FAQsProps, HeroProps } from '~/shared/types';
 
 // Hero data on FAQs page *******************
 export const heroFaqs: HeroProps = {

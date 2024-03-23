@@ -2,27 +2,28 @@ import md from 'markdown-it';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-import { findPostBySlug, findLatestPosts } from '~/utils/posts';
+import { getPostBySlug } from '~/utils/firestore';
 
 export const dynamicParams = false;
 
 const getFormattedDate = (date) => date;
 
-export async function generateMetadata({ params}) {
-  const post = await findPostBySlug(params.slug);
+export async function generateMetadata({ params }) {
+  const post = await getPostBySlug(params.slug);
   if (!post) {
     return notFound();
   }
   return { title: post.title, description: post.description };
 }
 
-export async function generateStaticParams() {
-  return (await findLatestPosts()).map(({ slug }) => ({ slug }));
-}
+// export async function generateStaticParams() {
+//   console.log(await findLatestPosts());
+//   // return (await findLatestPosts()).map(({ slug }) => ({ slug }));
+//   return [];
+// }
 
 export default async function Page({ params }) {
-  const post = await findPostBySlug(params.slug);
-
+  const post = await getPostBySlug(params.slug);
   if (!post) {
     return notFound();
   }
