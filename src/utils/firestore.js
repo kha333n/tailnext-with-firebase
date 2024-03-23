@@ -79,7 +79,7 @@ export const findLatestPosts = async ({ count } = {}) => {
       slug: doc.data().slug,
       title: doc.data().title,
       description: doc.data().description,
-      publishDate: moment.unix(doc.data().publishDate).format('MMMM DD, YYYY'),
+      publishDate: moment.unix(doc.data().publishDate).format('MM DD, YYYY'),
       image: doc.data().image,
       content: doc.data().content,
       tags: doc.data().tags,

@@ -2,7 +2,7 @@ import md from 'markdown-it';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-import { findLatestPosts, getPostBySlug } from '~/utils/firestore';
+import { findLatestPosts, getPostBySlug } from '~/utils/laravel';
 
 export const dynamicParams = false;
 
