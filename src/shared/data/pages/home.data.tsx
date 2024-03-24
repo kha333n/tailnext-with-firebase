@@ -195,7 +195,7 @@ export const contentHomeOne: ContentProps = {
         'Coding. Coding. Coding. Along with Classical Music.',
       callToAction: {
         text: 'Listen along',
-        href: 'https://open.spotify.com/playlist/37i9dQZF1DX1oYzvZ9A4Uy',
+        href: 'https://open.spotify.com/playlist/5goVf7t5nIvWXzlTjrnRe5?si=4e7ae206c9a04639',
         targetBlank: true,
       },
     },
@@ -205,7 +205,7 @@ export const contentHomeOne: ContentProps = {
         'Watch movies, Play Snoker, and Go Outside.',
       callToAction: {
         text: 'One of my most favorite',
-        href: 'https://open.spotify.com/playlist/37i9dQZF1DX1oYzvZ9A4Uy',
+        href: 'https://pern-my.sharepoint.com/:f:/g/personal/bc190201444_vu_edu_pk/EhgrkW_3TNJKtSXDdV1uA_IB74B3iGwXRspVHWpRKCNK_Q?e=HxXzuU',
         targetBlank: true,
       },
     },
